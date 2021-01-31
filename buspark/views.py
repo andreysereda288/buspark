@@ -39,9 +39,6 @@ class TravelDriverListView(generics.ListAPIView):
 
         return Response(serializer.data)
 
-    # def get(self, request, *args, **kwargs):
-    #     return self.list(request, *args, **kwargs)
-
 
 class TravelDriverDetailView(generics.RetrieveAPIView):
     serializer_class = TravelDriverSerializer
@@ -60,9 +57,6 @@ class TravelDriverDetailView(generics.RetrieveAPIView):
             instance.travel_time = distance_response['status_message']
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
-
-    # def get(self, request, *args, **kwargs):
-    #     return self.retrieve(request, *args, **kwargs)
 
 
 class DriverDetailView(generics.RetrieveUpdateDestroyAPIView):
