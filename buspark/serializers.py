@@ -59,4 +59,3 @@ class TravelDriverSerializer(serializers.ModelSerializer):
         model = Driver
         fields = ('id', 'name', 'surname', 'date_of_birth', 'bus', 'age', 'travel_time')
         depth = 1
-

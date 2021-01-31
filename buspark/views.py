@@ -28,15 +28,11 @@ class TravelDriverListView(generics.ListAPIView):
                 item.travel_time = int(math.ceil(0.001*distance_response['distance']/item_velocity/8))
             else:
                 item.travel_time = distance_response['status_message']
-
-
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
             return self.get_paginated_response(serializer.data)
-
         serializer = self.get_serializer(queryset, many=True)
-
         return Response(serializer.data)
 
 
