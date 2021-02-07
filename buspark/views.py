@@ -44,7 +44,7 @@ class TravelDriverDetailView(generics.RetrieveAPIView):
         point1 = request.GET.get('from')
         point2 = request.GET.get('to')
         distance_response = get_distance(start=point1, finish=point2)
-        print(distance_response)
+        # print(distance_response)
         instance = self.get_object()
         instance_velocity = instance.bus.aggregate(Max('velocity'))['velocity__max']
         if distance_response['distance']:
